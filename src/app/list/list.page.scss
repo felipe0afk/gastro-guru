@@ -1,0 +1,21 @@
+ion-content {
+  --background: #121212; // Fondo negro
+}
+
+.recipe-item {
+  --background: #1e1e1e; // Gris carbón
+  --color: #ffffff;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  
+  ion-thumbnail {
+    width: 70px; height: 70px;
+    border-radius: 12px;
+    overflow: hidden;
+    img { object-fit: cover; }
+  }
+
+  h2 { font-weight: 800; color: #ffcc00; } // AMARILLO MOSTAZA
+  p { color: #b0b0b0; font-size: 0.9rem; }
+}

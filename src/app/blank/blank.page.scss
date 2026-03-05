@@ -1,0 +1,35 @@
+// Fondo oscuro para toda la página
+ion-content {
+  --background: #121212; 
+}
+
+.welcome-header {
+  padding: 40px 20px 20px;
+  text-align: center;
+  h1 { font-weight: 800; color: #ffffff; margin-bottom: 5px; font-size: 2.2rem; }
+  p { color: #a0a0a0; margin-top: 0; font-size: 1.1rem; }
+}
+
+.category-card {
+  margin: 15px;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #1e1e1e; // Gris carbón
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid #333;
+
+  .img-wrapper {
+    width: 100%;
+    height: 200px;
+    img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); }
+  }
+  
+  ion-card-title {
+    font-weight: 900;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px 0;
+    letter-spacing: 2px;
+  }
+}

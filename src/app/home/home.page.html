@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #121212; --color: #ffffff;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="list" color="warning"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffcc00; font-weight: 800;">PREPARACIÓN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #121212;">
+  <div *ngIf="receta">
+    <div style="position: relative; height: 320px;">
+      <img [src]="receta.img" style="width: 100%; height: 100%; object-fit: cover;" />
+      <div style="position: absolute; bottom: 0; width: 100%; height: 150px; background: linear-gradient(transparent, #121212);"></div>
+      <h1 style="position: absolute; bottom: 20px; left: 20px; color: white; font-weight: 900; font-size: 2.5rem; margin: 0;">{{ receta.nombre }}</h1>
+    </div>
+
+    <div style="padding: 25px;">
+      <p style="color: #cccccc; font-style: italic; font-size: 1.1rem;">{{ receta.desc }}</p>
+      
+      <h3 style="color: #ffcc00; font-weight: 800; margin-top: 30px;">INGREDIENTES</h3>
+      <ion-list lines="none" style="background: transparent;">
+        <ion-item *ngFor="let ing of receta.ingredientes" style="--background: transparent; --color: white;">
+          <ion-icon name="checkmark-circle" slot="start" color="warning"></ion-icon>
+          <ion-label>{{ ing }}</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <h3 style="color: #ffcc00; font-weight: 800; margin-top: 30px;">PASOS</h3>
+      <div *ngFor="let paso of receta.pasos; let i = index" style="background: #1e1e1e; padding: 20px; border-radius: 15px; margin-bottom: 15px; display: flex; border: 1px solid #2a2a2a;">
+        <div style="background: #ffcc00; color: black; border-radius: 50%; width: 25px; height: 25px; display: flex; justify-content: center; align-items: center; font-weight: 900; margin-right: 15px; flex-shrink: 0;">{{ i+1 }}</div>
+        <p style="color: #e0e0e0; margin: 0; line-height: 1.6;">{{ paso }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title>Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center ion-padding">
+    <ion-avatar style="margin: auto; width: 100px; height: 100px;">
+      <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <h2>Usuario de Prueba</h2>
+    <p>Chef Amateur</p>
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-icon name="notifications-outline" slot="start"></ion-icon>
+      <ion-label>Notificaciones de nuevas recetas</ion-label>
+      <ion-toggle slot="end" [checked]="true"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="color-palette-outline" slot="start"></ion-icon>
+      <ion-label>Modo Oscuro</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="log-out-outline" slot="start" color="danger"></ion-icon>
+      <ion-label color="danger">Cerrar Sesión</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

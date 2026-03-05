@@ -1,0 +1,25 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #121212; --color: #ffcc00;">
+    <ion-title style="font-weight: 900; letter-spacing: 3px; font-size: 1.6rem;">GASTRO GURÚ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #121212;">
+  <div style="padding: 30px 20px; text-align: center;">
+    <h1 style="color: #ffffff; font-weight: 800; margin: 0; font-size: 2.2rem;">EXPLORA</h1>
+    <p style="color: #ffcc00; font-weight: 600; letter-spacing: 1px;">SABORES DEL MUNDO EN TU COCINA</p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4" *ngFor="let c of categorias">
+        <ion-card (click)="goToList(c.nombre)" style="border-radius: 20px; background: #1e1e1e; border: 1px solid #333; overflow: hidden;">
+          <img [src]="c.img" style="height: 250px; width: 100%; object-fit: cover; filter: brightness(0.7);" />
+          <ion-card-header>
+            <ion-card-title style="color: #ffcc00; font-weight: 900; text-align: center;">{{ c.nombre | uppercase }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

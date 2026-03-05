@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="blank"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-list lines="none" class="ion-padding">
+    <ion-item *ngFor="let r of recetas" (click)="goToDetail(r)" button class="recipe-item">
+      <ion-thumbnail slot="start">
+        <img [src]="r.img" [alt]="r.nombre" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ r.nombre }}</h2>
+        <p>{{ r.desc }}</p>
+      </ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end" color="medium"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
