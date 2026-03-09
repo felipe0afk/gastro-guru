@@ -1,23 +1,48 @@
-<ion-header>
-  <ion-toolbar color="warning">
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #121212; --color: #ffcc00;">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="blank"></ion-back-button>
+      <ion-back-button defaultHref="blank" color="warning"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ titulo }}</ion-title>
+    <ion-title style="font-weight: 800; letter-spacing: 1px;">{{ titulo | uppercase }}</ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar style="--background: #121212; padding: 0 10px 10px 10px;">
+    <ion-searchbar 
+      placeholder="¿Qué quieres cocinar?" 
+      (ionInput)="buscarReceta($event)"
+      style="--background: #1e1e1e; --color: white; --placeholder-color: #777; --icon-color: #ffcc00;"
+      color="warning"
+      animated="true">
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light">
-  <ion-list lines="none" class="ion-padding">
-    <ion-item *ngFor="let r of recetas" (click)="goToDetail(r)" button class="recipe-item">
-      <ion-thumbnail slot="start">
-        <img [src]="r.img" [alt]="r.nombre" />
+<ion-content style="--background: #121212;">
+  <ion-list lines="none" style="background: transparent; padding: 10px;">
+    
+    <ion-item *ngFor="let r of recetasFiltradas" 
+              (click)="goToDetail(r)" 
+              style="--background: #1e1e1e; margin-bottom: 12px; border-radius: 15px; border: 1px solid #333; --padding-start: 10px;">
+      
+      <ion-thumbnail slot="start" style="--border-radius: 10px; width: 80px; height: 80px;">
+        <img [src]="r.img" style="object-fit: cover; width: 100%; height: 100%;" />
       </ion-thumbnail>
-      <ion-label>
-        <h2>{{ r.nombre }}</h2>
-        <p>{{ r.desc }}</p>
+      
+      <ion-label style="margin-left: 15px;">
+        <h2 style="color: #ffcc00; font-weight: 700; font-size: 1.1rem; margin-bottom: 5px;">{{ r.nombre }}</h2>
+        <p style="color: #aaa; font-size: 0.85rem; line-height: 1.2; white-space: normal;">
+          {{ r.desc }}
+        </p>
       </ion-label>
-      <ion-icon name="chevron-forward-outline" slot="end" color="medium"></ion-icon>
+      
+      <ion-icon name="chevron-forward-outline" slot="end" color="warning" style="font-size: 1.2rem;"></ion-icon>
     </ion-item>
+
   </ion-list>
+
+  <div *ngIf="recetasFiltradas.length === 0" style="text-align: center; margin-top: 60px; padding: 20px;">
+    <ion-icon name="restaurant-outline" style="font-size: 4rem; color: #222;"></ion-icon>
+    <h3 style="color: #444; font-weight: 600;">No hay coincidencias</h3>
+    <p style="color: #333;">Intenta buscar otro platillo o ingrediente.</p>
+  </div>
 </ion-content>
